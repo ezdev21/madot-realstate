@@ -1,17 +1,8 @@
 <?php
 
+use App\Http\Controllers\ProjectController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,3 +11,24 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::view('contact','contactus');
+Route::view('about','aboutus');
+
+Route::prefix('project',function(){
+    Route::get('list',[ProjectController::class,'index']);
+    Route::get('create',[ProjectController::class,'create']);
+    Route::post('store',[ProjectController::class,'store']);
+    Route::get('edit',[ProjectController::class,'edit']);
+    Route::patch('update',[ProjectController::class,'create']);
+    Route::delete('delete',[ProjectController::class,'destroy']);
+});
+
+Route::prefix('blog',function(){
+    Route::get('list',[ProjectController::class,'index']);
+    Route::get('create',[ProjectController::class,'create']);
+    Route::post('store',[ProjectController::class,'store']);
+    Route::get('edit',[ProjectController::class,'edit']);
+    Route::patch('update',[ProjectController::class,'create']);
+    Route::delete('delete',[ProjectController::class,'destroy']);
+});
