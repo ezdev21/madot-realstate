@@ -6,7 +6,11 @@ module.exports = {
     './resources/**/*.vue',
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage:{
+       "realstate": "url('/storage/realstate.jpg')"
+      }
+    },
   },
   plugins: [],
 }
