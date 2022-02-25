@@ -15,6 +15,17 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('type');
+            $table->string('sales_range');
+            $table->string('price_range');
+            $table->string('status');
+            $table->string('sales_status');
+            $table->json('characterstics');
+            $table->string('delivery_period');
+            $table->decimal('progress');
+            $table->string('location');
+            $table->text('description');
             $table->timestamps();
         });
     }
