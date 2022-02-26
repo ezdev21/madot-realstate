@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('houses', function (Blueprint $table) {
             $table->id();
+            $table->integer('bedroom');
+            $table->integer('bathroom');
+            $table->string('standard');
+            $table->string('image');
+            $table->json('characterstics');
             $table->timestamps();
         });
     }
